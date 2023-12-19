@@ -1,7 +1,10 @@
 <?php
 
+$configs = require_once "config.php";
+
 class DB_CONNECT{
     //required properties
+        public $configs;
         public $email;
         public $password;
         public $address;
@@ -9,6 +12,8 @@ class DB_CONNECT{
         public $province;
 
         public function __construct($email, $password, $address, $city, $province) {
+            $this->configs = require("database/config.php");
+
             $this->email = $email;
             $this->password = $password;
             $this->address = $address;
@@ -16,9 +21,10 @@ class DB_CONNECT{
             $this->province = $province;
         }
 
+      
         public function PostToDB(){
             try {
-                $conn = new PDO("mysql:host=localhost;dbname=user", 'root', '');
+                $conn = new PDO("mysql:host={$this->configs['servername']};dbname={$this->configs['database']}", $this->configs['username'], $this->configs['password']);
                 // setting the PDO error mode to exception
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            

@@ -13,13 +13,13 @@
 </head>
 <body>
 <div class="m-auto py-6 my-6">
-        <h1 class="text-center py-4">Registration</h1>
+        <h3 class="text-center py-4">Good Day - User</h3>
     </div>
     <div class="col-lg-9 col-sm-12 m-auto p-4">
             <div class="col-4 m-auto" style="margin-top : 30px;">
             <div class="card h-100">
             <div class="card-body">
-                <h5 class="card-title">Logged in user Email : <?php echo  $_SESSION["user_email"]   ?> </h5>
+                <p class="card-title">Logged in user Email : <?php echo  $_SESSION["user_email"]   ?> </p>
                 <a href="/Busani-project/logout.php" class="btn btn-secondary">logout</a>
             </div>
             </div>
