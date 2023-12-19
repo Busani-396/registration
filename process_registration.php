@@ -3,24 +3,15 @@
 //INITIATE SESSION
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['REQUEST_METHOD'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $address = $_POST['address'];
-    $city = $_POST['city'];
-    $province = $_POST['province'];
+require_once "database\connect_to_db.php";
+require_once 'controllers\ProcessRegistrationController.php';
+;
 
-    // Set session variables
-    $_SESSION["user_email"] = $email;
+    $forward_to_dashboard = new ProcessController();
 
-    // Redirect to ----- dashboard
-    header('Location: /Busani-project/dashboard.php');
-    exit;
-
-    echo $province;
-}
+    $forward_to_dashboard->ProcessRegistrationHandler();
 
 
 
 
-echo "Hello dashboard";
+//echo "Hello dashboard";

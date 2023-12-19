@@ -8,10 +8,7 @@ require_once 'models/HomeModel.php';
 
 $baseUrl = '/Busani-project';
 
-//get the uri
 $uri = $_SERVER['REQUEST_URI'];
-
-// Remove the base URL from the request URI
 $uri = str_replace($baseUrl, '', $uri);
 
 // echo $uri;
@@ -19,10 +16,7 @@ $uri = str_replace($baseUrl, '', $uri);
 
 if ($uri === '/' || $uri === '') {
     $controller = new HomeController();
-}else {
-    // Handle 404 - Not Found
-    include 'views/404.php';
-    exit;
+    
 }
 
 $controller->handleRequest();
